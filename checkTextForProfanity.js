@@ -11,7 +11,7 @@ const checkTextForProfanity = async (text) => {
     return matches ? { containsProfanity: true, words: matches } : { containsProfanity: false, words: [] };
 };
 
-const testText = "This is some example text with badword and fuck anotherbadword.";
+const testText = "This is some example text with badword and anotherbadword.";
 checkTextForProfanity(testText).then((result) => {
     console.log(`Contains profanity: ${result.containsProfanity}`); // true или false
     console.log(`Profane words: ${result.words.join(', ')}`); // Список слов
