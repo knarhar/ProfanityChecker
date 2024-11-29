@@ -1,6 +1,6 @@
 import getWords from './getWords.js';
 
-const checkTextForProfanity = async (text) => {
+const profanityChecker = async (text) => {
     let badWords = await getWords(); // Получаем список слов
     // Очищаем массив от пустых строк и пробелов, удаляем дубликаты
     badWords = [...new Set(badWords.filter((word) => word.trim() !== ''))];
@@ -12,4 +12,4 @@ const checkTextForProfanity = async (text) => {
     return matches ? { containsProfanity: true, words: matches } : { containsProfanity: false, words: [] };
 };
 
-export default checkTextForProfanity;
+export default profanityChecker;

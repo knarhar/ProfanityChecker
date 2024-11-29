@@ -1,5 +1,5 @@
 import express from 'express';
-import checkTextForProfanity from './src/checkTextForProfanity.js';
+import profanityChecker from './src/profanityChecker.js';
 
 const app = express();
 const port = 3000;
@@ -15,7 +15,7 @@ app.post('/check-profanity', async (req, res) => {
     }
 
     try {
-        const result = await checkTextForProfanity(text);
+        const result = await profanityChecker(text);
         res.json(result); // Отправляем результат обратно
     } catch (error) {
         console.error(error);
