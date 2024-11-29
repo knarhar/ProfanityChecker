@@ -1,5 +1,17 @@
 {
   "dependencies": {
-    "@coffeeandfun/google-profanity-words": "^2.1.0"
-  }
+    "@coffeeandfun/google-profanity-words": "^2.1.0",
+    "express": "^4.21.1"
+  },
+  "name": "badwords",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000S\u0000p\u0000e\u0000l\u0000l\u0000C\u0000h\u0000e\u0000c\u0000k\u0000\r\u0000 \u0000",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

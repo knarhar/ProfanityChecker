@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profanity Checker</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Profanity Checker</h1>
+    <textarea id="inputText" placeholder="Enter text to check for profanity..."></textarea><br>
+    <button onclick="checkForProfanity()">Check Text</button>
+    <p id="result"></p>
+
+    <script>
+        async function checkForProfanity() {
+            const inputText = document.getElementById('inputText').value;
+
+            // Отправляем запрос на сервер для проверки текста
+            const response = await fetch('/check-profanity', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: inputText })
+            });
+
+            const data = await response.json();
+
+            const resultElement = document.getElementById('result');
+            if (data.containsProfanity) {
+                resultElement.textContent = `Profanity found: ${data.words.join(', ')}`;
+                resultElement.style.color = 'red';
+            } else {
+                resultElement.textContent = 'No profanity detected.';
+                resultElement.style.color = 'green';
+            }
+        }
+    </script>
+
+</body>
+</html>
