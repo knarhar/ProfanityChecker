@@ -20,7 +20,7 @@ A simple profanity checker that scans input text for bad words and returns a lis
 ### Step 1: Clone the repository
 
 ```bash
-git clone https://github.com/your-username/profanity-checker.git
+git clone https://github.com/knarhar/ProfanityChecker.git
 cd profanity-checker
 ```
 
